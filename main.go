@@ -35,6 +35,7 @@ func main() {
 	go func() {
 		// 阻塞直到接受到系统信号
 		<-done
+
 		// 也可以通过 for 循环遍历 channel
 		//for o := range done {
 		//	switch o {
@@ -43,6 +44,12 @@ func main() {
 		//	default:
 		//		log.Println("Unknown error")
 		//	}
+		//}
+
+		// 或者配合 select case
+		//select {
+		//case <-done:
+		//	fmt.Println("Server shutdown")
 		//}
 		if err := server.Shutdown(context.Background()); err != nil {
 			log.Fatal("Shutdown server: ", err)
