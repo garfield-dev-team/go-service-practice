@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  web_server:
+    image: garfield/go-service:1.0
+    restart: always
+    ports:
+      - "8080:8080"
